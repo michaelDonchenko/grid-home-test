@@ -1,49 +1,49 @@
-import React from 'react';
-import Grid from './Grid';
-import movies from './data_a';
-import pokemon from './data_b';
+import React from 'react'
+import Grid from './Grid'
+import movies from './data_a'
+import pokemon from './data_b'
 
 const Trailer = ({ data }) => (
-  <a href={data.url}
-     target="_blank"
-     rel="noopener noreferrer">
+  <a href={data.url} target='_blank' rel='noopener noreferrer'>
     trailer...
   </a>
-);
+)
 
-const PokemonName = ({ data }) => <span style={{ textTransform: 'capitalize' }}>{data}</span>;
+const PokemonName = ({ data }) => (
+  <span style={{ textTransform: 'capitalize' }}>{data}</span>
+)
 
 const moviesConfig = [
   {
     title: 'id',
-    field: 'imdbID'
+    field: 'imdbID',
   },
   {
     title: 'title',
-    field: 'Title'
+    field: 'Title',
   },
   {
     title: 'rating',
     field: 'imdbRating',
   },
- // {
- //   title: 'trailer',
- //   field: 'Trailer',
- //   component: Trailer
- // }
-];
+  {
+    title: 'trailer',
+    field: 'Trailer',
+    component: Trailer,
+  },
+]
 
 const pokemonConfig = [
   {
     title: 'pokedex #',
-    field: 'number'
+    field: 'number',
   },
-  // {
-  //   title: 'name',
-  //   field: 'name',
-  //   component: PokemonName
-  // },
-];
+  {
+    title: 'name',
+    field: 'name',
+    component: PokemonName,
+  },
+]
 
 const App = () => (
   <div>
@@ -53,6 +53,6 @@ const App = () => (
     <h2>Pokemon</h2>
     <Grid config={pokemonConfig} data={pokemon} />
   </div>
-);
+)
 
-export default App;
+export default App

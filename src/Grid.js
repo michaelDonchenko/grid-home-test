@@ -1,24 +1,32 @@
-import React from 'react';
+import React from 'react'
 
-const Grid = ({ config, data }) => (
-  <table>
-    <thead>
-    <tr>
-      <th>Col 1</th>
-      <th>Col 2</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
-    <tr>
-      <td>Data 1</td>
-      <td>Data 2</td>
-    </tr>
-    </tbody>
-  </table>
-);
+const Grid = ({ config, data }) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          {config.map((item) => (
+            <th key={item.field}>{item.title}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((dataItem, i) => (
+          <tr key={i}>
+            {config.map((configItem, i) =>
+              configItem.component ? (
+                <td key={i}>
+                  {configItem.component({ data: dataItem[configItem.field] })}
+                </td>
+              ) : (
+                <td key={i}>{dataItem[configItem.field]}</td>
+              )
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
 
-export default Grid;
+export default Grid

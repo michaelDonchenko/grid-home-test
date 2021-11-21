@@ -4,12 +4,18 @@ body {
   font-family: sans-serif;
 }
 
+h2 {
+  text-align: center;
+}
+
 table {
   margin: 30px;
   border-collapse: collapse;
+  padding: 2rem;
 }
 
-td, th {
+td,
+th {
   border: 1px solid #eee;
   min-width: 50px;
   padding: 2px 4px;
